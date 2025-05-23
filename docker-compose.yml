@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: salon-api
+    ports:
+      - "7070:80"
+    volumes:
+      - ./data:/code/data
+    environment:
+      - DATA_DIR=/code/data
+      - IMAGES_DIR=/code/images
+    restart: unless-stopped
